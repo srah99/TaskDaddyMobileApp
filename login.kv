@@ -1,0 +1,60 @@
+MDScreen:
+    name : "login"
+    md_bg_color:[1,1,1,1]
+    MDCard:
+        md_bg_color:[1,1,1,1]
+        size_hint: None,None
+        pos_hint : {"center_x" : .5 , "center_y":.5}
+        size : 320,550
+        padding : 20
+        spacing : 20
+        orientation : "vertical"
+        
+        BoxLayout:
+            Image:
+                source:"login.png"
+                size_hint_x: 0.4
+ 
+        MDTextField:
+            id: email_login
+            hint_text: "Email / Username"
+            hint_text_color_focus: [120/225,187/255,123/255,1]
+            line_color_focus :[120/225,187/255,123/255,1]
+            text_color_normal :[45/255,42/255,46/255,1]
+            text_color_focus :[45/255,42/255,46/255,1]
+            font_size : 18
+            icon_right : "account"
+            icon_right_color_focus : [120/225,187/255,123/255,1]
+        MDTextField:
+            id: pass_login
+            hint_text: "Password"
+            hint_text_color_focus: [120/225,187/255,123/255,1]
+            line_color_focus :[120/225,187/255,123/255,1]
+            text_color_normal :[45/255,42/255,46/255,1]
+            text_color_focus :[45/255,42/255,46/255,1]
+            font_size : 18
+            icon_right : "eye-off"
+            password : True
+            icon_right_color_focus : [120/225,187/255,123/255,1]
+        MDLabel:
+            id: login_lable
+            text : ""
+            pos_hint: {'center_x': .5,"center_y": .4}
+        MDRoundFlatButton:
+            text: "Login"
+            pos_hint: {'center_x': .5,"center_y": .4}
+            text_color: [120/225,187/255,123/255,1]
+            line_color : [120/225,187/255,123/255,1]
+            font_size : 18
+            size_hint: None, None
+            width: root.width * 0.9
+            on_press: app.Login()
+        MDRoundFlatButton:
+            text: "Sign Up"
+            pos_hint: {'center_x': .5,"center_y": .4}
+            text_color: [120/225,187/255,123/255,1]
+            line_color : [120/225,187/255,123/255,1]
+            font_size : 18
+            size_hint: None, None
+            width: root.width * 0.9
+            on_press: app.Signup()

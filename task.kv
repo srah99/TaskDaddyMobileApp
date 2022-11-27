@@ -1,0 +1,77 @@
+MDScreen:
+    name : "task"
+    md_bg_color:[1,1,1,1]
+    orientation : "vertical"
+    MDFloatLayout:
+        md_bg_color : 1,1,1,1
+        MDIconButton:
+            id : back_button
+            disabled : False
+            pos_hint :{"center_x":.08,"center_y": .95}
+            icon: "keyboard-backspace"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "welcome"
+        MDTextField:
+            id: task_name
+            size_hint : None,None
+            size : 295,10
+            padding : 20
+            spacing : 20
+            hint_text: "Task Name"
+            pos_hint :{"center_x":.5,"center_y": .80}
+            hint_text_color_focus: [120/225,187/255,123/255,1]
+            line_color_focus :[120/225,187/255,123/255,1]
+            text_color_normal :[45/255,42/255,46/255,1]
+            text_color_focus :[45/255,42/255,46/255,1]
+            font_size : 18
+            icon_right_color_focus : [120/225,187/255,123/255,1]
+        MDLabel:
+            id: task_date_lable
+            text: "YYYY-MM-DD"
+            disabled : True
+            size_hint : None,None
+            size : 295,10
+            pos_hint :{"center_x":.80,"center_y": .70}
+            hint_text_color_focus: [120/225,187/255,123/255,1]
+            line_color_focus :[120/225,187/255,123/255,1]
+            text_color_normal :[45/255,42/255,46/255,1]
+            text_color_focus :[45/255,42/255,46/255,1]
+            font_size : 18
+            icon_right_color_focus : [120/225,187/255,123/255,1]
+        MDRoundFlatButton:
+            text: "Set Date"
+            pos_hint: {'center_x': .5,"center_y": .60}
+            text_color: [120/225,187/255,123/255,1]
+            line_color : [120/225,187/255,123/255,1]
+            font_size : 18
+            size_hint: None, None
+            on_release: app.Dpick()
+        MDLabel:
+            id: task_time_lable
+            disabled : True
+            text: "00:00"
+            pos_hint :{"center_x":.925,"center_y": .45}
+            hint_text_color_focus: [120/225,187/255,123/255,1]
+            line_color_focus :[120/225,187/255,123/255,1]
+            text_color_normal :[45/255,42/255,46/255,1]
+            text_color_focus :[45/255,42/255,46/255,1]
+            font_size : 18
+            icon_right_color_focus : [120/225,187/255,123/255,1]
+        MDRoundFlatButton:
+            text: "Set Time"
+            pos_hint: {'center_x': .5,"center_y": .35}
+            text_color: [120/225,187/255,123/255,1]
+            line_color : [120/225,187/255,123/255,1]
+            font_size : 18
+            size_hint: None, None
+            on_release: app.Timepick()
+        MDRoundFlatButton:
+            text: "Add Task"
+            pos_hint: {'center_x': .5,"center_y": .15}
+            text_color: [120/225,187/255,123/255,1]
+            line_color : [120/225,187/255,123/255,1]
+            font_size : 18
+            size_hint: None, None
+            width: root.width * 0.9
+            on_press: app.Addtask()

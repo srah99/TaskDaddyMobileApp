@@ -1,0 +1,117 @@
+<TodoCard>
+    elevation : 2
+    md_bg_color : 1, 1, 1, 1
+    radius : [8]
+    size_hint_y : .2
+    label : ''
+    date : ''
+    time : ''
+    _id:''
+    MDFloatLayout:
+        id : bar
+        size_hint : .01, .9
+        pos_hint :{"center_x":.02,"center_y": .5}
+        md_bg_color : [120/225,187/255,123/255,1]
+    MDLabel:
+        id : task_label
+        text : root.label
+        markup: True
+        font_size: "25sp"
+        size_hint_x : .8
+        pos_hint :{"center_x":.46,"center_y": .8}
+    MDIconButton:
+        id : root._id
+        text: root._id
+        icon: "delete"
+        size_hint : None,None
+        size : "48dp" , "48dp"
+        pos_hint :{"center_x":.95,"center_y": .8}
+        on_press : app.deleteData(self)
+    MDLabel:
+        text : "Date:  "
+        markup: True
+        line_height: .8
+        size_hint_x : .9
+        pos_hint :{"center_x":.51,"center_y": .41}
+    MDLabel:
+        id : task_date
+        text : root.date
+        markup: True
+        font_size : "15sp"
+        line_height: .8
+        size_hint_x : .9
+        pos_hint :{"center_x":.64,"center_y": .40}
+    MDLabel:
+        id : task_time
+        text : "Time:"
+        markup: True
+        line_height: .8
+        size_hint_x : .9
+        pos_hint :{"center_x":.51,"center_y": .2}
+    MDLabel:
+        id : task_time
+        text : root.time
+        markup: True
+        font_size : "15sp"
+        line_height: .8
+        size_hint_x : .9
+        pos_hint :{"center_x":.66,"center_y": .19}
+
+MDScreen:
+    # todo_list : todo_list
+    name : "welcome"
+    MDFloatLayout:
+        md_bg_color : 1,1,1,
+        MDLabel:
+            text : "User: "
+            pos_hint :{"center_x":.55,"center_y": .925}
+            font_size : "20sp"
+        MDLabel:
+            id : name_label
+            text : ""
+            pos_hint :{"center_x":.7,"center_y": .925}
+            font_size : "20sp"
+        MDLabel:
+            id: date
+            text : ""
+            pos_hint :{"center_x":.56,"center_y": .95}
+            font_size : "35sp"
+        MDIconButton:
+            icon : "refresh"
+            pos_hint :{"center_x":.73,"center_y": .925}
+            user_font_size : "30sp"
+            md_bg_color :  [120/225,187/255,123/255,1]
+            theme_text_color : "Custom"
+            text_color : 1,1,1,1
+            on_release : app.refresh()
+        MDIconButton:
+            icon : "power"
+            pos_hint :{"center_x":.57,"center_y": .925}
+            user_font_size : "30sp"
+            md_bg_color :  [120/225,187/255,123/255,1]
+            theme_text_color : "Custom"
+            text_color : 1,1,1,1
+            on_release : app.logout()
+        MDIconButton:
+            icon : "plus"
+            pos_hint :{"center_x":.89,"center_y": .925}
+            user_font_size : "30sp"
+            md_bg_color :  [120/225,187/255,123/255,1]
+            theme_text_color : "Custom"
+            text_color : 1,1,1,1
+            on_release : app.TaskButton()
+        ScrollView:
+            do_scroll_y: True
+            do_scroll_x: False
+            size_hint_y: .85
+            pos_hint :{"center_x":.5,"y": 0}
+            bar_width : 0
+            GridLayout:
+                id : todo_list
+                cols :1
+                height : self.minimum_height
+                row_default_height : 80
+                size_hint_y: None
+                padding : 15, 10
+                spacing: 15 ,10
+        

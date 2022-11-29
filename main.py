@@ -91,6 +91,8 @@ class login(MDApp):
         screen_manager.add_widget(Builder.load_file("signup.kv"))
         screen_manager.add_widget(Builder.load_file("welcome.kv"))
         screen_manager.add_widget(Builder.load_file("task.kv"))
+        screen_manager.add_widget(Builder.load_file("androidChat.kv"))
+
         return screen_manager
     def logout(self):
         screen_manager.get_screen("login").ids.email_login.text = ""
